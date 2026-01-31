@@ -1,0 +1,203 @@
+/* Synology Photos Integration Plugin Styles */
+
+/* Container pre fotky */
+.synology-photos-container {
+	margin: 1rem 0;
+	width: 100%;
+}
+
+/* Grid layout */
+.synology-photos-grid {
+	display: grid;
+	gap: 1rem;
+	width: 100%;
+	margin: 1rem 0;
+}
+
+/* Jednotlivá fotka v gride */
+.synology-photo-item {
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
+	aspect-ratio: 1 / 1;
+	background: var(--background-secondary);
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.synology-photo-item:hover {
+	transform: scale(1.02);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Obrázok */
+.synology-photo-img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	display: block;
+}
+
+/* Loading a error stavy */
+.synology-photos-loading {
+	padding: 2rem;
+	text-align: center;
+	color: var(--text-muted);
+	font-style: italic;
+}
+
+.synology-photos-error {
+	padding: 1rem;
+	background: var(--background-modifier-error);
+	color: var(--text-error);
+	border-radius: 4px;
+	border-left: 4px solid var(--text-error);
+}
+
+/* Load more button */
+.synology-photos-load-more {
+	margin: 1.5rem auto 1rem;
+	padding: 0.75rem 2rem;
+	background: var(--interactive-accent);
+	color: var(--text-on-accent);
+	border: none;
+	border-radius: 6px;
+	font-size: 1rem;
+	font-weight: 500;
+	cursor: pointer;
+	display: block;
+	transition: all 0.2s ease;
+	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.synology-photos-load-more:hover {
+	background: var(--interactive-accent-hover);
+	transform: translateY(-1px);
+	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.synology-photos-load-more:active {
+	transform: translateY(0);
+}
+
+.synology-photos-load-more:disabled {
+	opacity: 0.6;
+	cursor: not-allowed;
+	transform: none;
+}
+
+/* Modal pre fullsize zobrazenie */
+.synology-photo-modal {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0, 0, 0, 0.9);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 9999;
+	cursor: pointer;
+	animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.synology-photo-modal-content {
+	max-width: 90vw;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.synology-photo-modal-content img {
+	max-width: 100%;
+	max-height: 75vh;
+	object-fit: contain;
+	border-radius: 4px;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+}
+
+.synology-photo-url {
+	background: var(--background-primary);
+	padding: 1rem;
+	border-radius: 4px;
+	width: 100%;
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.synology-photo-filename {
+	font-weight: 600;
+	color: var(--text-normal);
+	text-align: center;
+	font-size: 0.9rem;
+}
+
+.synology-photo-url-input {
+	width: 100%;
+	padding: 0.5rem;
+	background: var(--background-secondary);
+	border: 1px solid var(--background-modifier-border);
+	border-radius: 4px;
+	color: var(--text-muted);
+	font-family: var(--font-monospace);
+	font-size: 0.85rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+.synology-photo-url-input:focus {
+	outline: 2px solid var(--interactive-accent);
+	outline-offset: 2px;
+}
+
+/* Settings page styling */
+.synology-photos-usage {
+	margin-top: 1rem;
+	padding: 1rem;
+	background: var(--background-secondary);
+	border-radius: 4px;
+}
+
+.synology-photos-usage pre {
+	background: var(--background-primary);
+	padding: 1rem;
+	border-radius: 4px;
+	overflow-x: auto;
+}
+
+.synology-photos-usage ul {
+	margin-left: 1.5rem;
+}
+
+.synology-photos-usage li {
+	margin: 0.5rem 0;
+}
+
+/* Responsivita */
+@media (max-width: 768px) {
+	.synology-photos-grid {
+		grid-template-columns: repeat(2, 1fr) !important;
+		gap: 0.5rem;
+	}
+}
+
+@media (max-width: 480px) {
+	.synology-photos-grid {
+		grid-template-columns: 1fr !important;
+	}
+}

@@ -3,7 +3,7 @@
   "name": "Synology Photos Integration",
   "version": "1.0.0",
   "minAppVersion": "0.15.0",
-  "description": "Integrácia Synology Photos do Obsidian - zobrazuje fotky s tagmi v grid kontajneri",
+  "description": "Photos plugin for Obsidian",
   "author": "Ján Jurdik",
   "authorUrl": "",
   "isDesktopOnly": false
